@@ -77,6 +77,10 @@ python cli_demo.py             # full scenario (≈ 10 min on a busy testnet)
 
 Requires Python 3.11+ and `xrpl-py` with Token Escrow support. Seeds are stored in `.env` (git-ignored, see `.env.example`).
 
+## V2 — Smart Escrow (XLS-100), running on devnet
+
+The same bond, but the quorum rule moves on-chain: a Rust/WASM finish function releases the escrow only if **at least 2 of 3 orbital-tracking oracles** have issued a `DEORBITED` Credential to the operator. No shared secret, oracles are real accounts, the ledger enforces the 2-of-3 rule. Tested on the Smart Escrow devnet: 0 or 1 confirmation → `tecBYTECODE_REJECTED`, 2 confirmations → released, no confirmation after the deadline → `EscrowCancel` back to the Fund. Details: [`smart-escrow-v2/`](smart-escrow-v2/), log: [`docs/v2_devnet_output.txt`](docs/v2_devnet_output.txt).
+
 ## Known limitations (MVP)
 
 - Oracles, the T-bill conversion and the yield are simulated.

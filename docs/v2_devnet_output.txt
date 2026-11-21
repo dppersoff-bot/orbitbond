@@ -1,0 +1,31 @@
+OrbitBond V2 — Smart Escrow (XLS-100) — run on the Smart Escrow devnet (wss://wasm-devnet.dev.ripplex.io:51233, rippled 3.5.0-b0)
+Explorer: https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/<hash>
+
+0. Accounts
+   Fund                rPMKxitYFGSfjnRV1BKinYxsSWya9k3gfX
+   Operator A (Sat-A)  ram5ygWU9zgbmH4tRpKkaJk618AWsS3o9u
+   Operator B (Sat-B)  rHkJDLEye8ziy7E8iiPQ5YQdYMfamYhAzZ
+   Oracle ESA          r9jBQHyFacUPgxvgsNY2srKXiWPFHU42ug
+   Oracle LeoLabs      rfo8L9jUbUqADs5hrnuomdGWPUmbEKyBzr
+   Oracle Space-Track  rGefGVB3No4EcagjTZdiYhgbTv1L99UWsv
+
+1. Fund creates Sat-A's Smart Escrow (Rust/WASM finish function, 3 oracles in the Data field)
+   EscrowCreate        tesSUCCESS            1467365F4B62005169F69D580B0D84324C233545E1A6A4E6C8AC8645C2DFBA9D
+
+2. Finish with 0 oracle confirmations
+   EscrowFinish        tecBYTECODE_REJECTED  A4DE4DB9EB311C61CC18BBEF53ACE046288C3C5872289F5DB23B946D7DEA8080
+
+3. Oracle ESA certifies re-entry (Credential DEORBITED) — 1 of 3
+   CredentialCreate    tesSUCCESS            07C5F7E69333CF6A3BCBC3B056771DEC47E0B700042A91972B23A72C59C82BF9
+   EscrowFinish        tecBYTECODE_REJECTED  5B9B43A51C3CA7BCEADD4B1DBCAEA64F6F9A139CDDBE30944336119473427C51
+
+4. Oracle Space-Track confirms — 2 of 3 → bond released
+   CredentialCreate    tesSUCCESS            8470316C8C16D648D5B52CBF1E46768D1AFF8AFDB614229F7614E574DB37D010
+   EscrowFinish        tesSUCCESS            DE09093362F8574384DB8F701555EECE6DCD5A2A975D0101D822B69270EB4C7F   (50 XRP to operator A)
+
+5. Sat-B: no confirmation, deadline passes → bond returns to the Fund
+   EscrowCreate        tesSUCCESS            83FDB4786FF81FE1F597FCE4291A4B6E822F3C7540C433E111ACDCBABFB05A91
+   EscrowFinish        tecBYTECODE_REJECTED  43FD4EDE60A547DE2632467FDBB1989668DBBDDAFB81ADB32922590A10ED4C09
+   EscrowCancel        tesSUCCESS            4131221EA62AD367B74CF56166DF3A402E2109C1EA124E6128541AFC5D56F572   (75 XRP back to the Fund)
+
+Done: the "2 of 3 oracles" rule is enforced by the ledger itself.
