@@ -22,7 +22,12 @@ export interface NewBondInput {
   massKg: number;
   propulsion: Propulsion;
   missionYears: number;
+  /** Optional demo schedule (seconds). Clamped: first deadline 60–1800 s, spacing 10–600 s. */
+  schedule?: { firstDeadlineSec?: number; trancheSpacingSec?: number };
 }
+
+const clamp = (v: number | undefined, lo: number, hi: number) =>
+  v === undefined || !Number.isFinite(v) ? undefined : Math.min(hi, Math.max(lo, Math.round(v)));
 
 /**
  * Full on-chain flow:
@@ -66,7 +71,11 @@ export async function createBond(input: NewBondInput): Promise<Bond> {
   bond.navAtLock = nav;
   bond.ousgTotal = ousgTotal;
 
-  const schedule = trancheSchedule(now());
+  // The first deadline must stay safely after the 4 EscrowCreate txs are validated (~20 s).
+  const schedule = trancheSchedule(now(), {
+    firstDeadlineSec: clamp(input.schedule?.firstDeadlineSec, 60, 1800),
+    trancheSpacingSec: clamp(input.schedule?.trancheSpacingSec, 10, 600),
+  });
   let allocated = 0;
   for (const t of schedule) {
     const isLast = t.index === schedule.length - 1;

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { OrbitHero } from "@/components/OrbitHero";
 import { ArrowRight, Building2, ShieldCheck, Satellite, Recycle, Lock, Radar, Coins, Scale } from "lucide-react";
 
 const STEPS = [
@@ -18,7 +19,8 @@ const ROLES = [
 export default function Home() {
   return (
     <div className="space-y-20">
-      <section className="pt-10">
+      <section className="grid items-center gap-10 pt-10 lg:grid-cols-[1.25fr_1fr]">
+        <div>
         <div className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">IXH26 · Track 2 · XRPL Applications</div>
         <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-tight tracking-tight">
           Plus vous désorbitez tôt, plus vous gagnez.<br />
@@ -35,6 +37,10 @@ export default function Home() {
           <Link href="/fund" className="inline-flex items-center gap-2 rounded-lg border border-space-600 px-5 py-2.5 font-medium hover:bg-space-800">
             Voir la transparence on-chain
           </Link>
+        </div>
+        </div>
+        <div className="mx-auto aspect-square w-full max-w-[440px]">
+          <OrbitHero />
         </div>
       </section>
 

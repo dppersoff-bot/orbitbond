@@ -29,8 +29,8 @@ export const DEMO_TIME = {
   // Compressed time for the live demo: 60 real seconds = 1 simulated year.
   secondsPerYear: 60,
   // Default bond schedule for live demo bonds (seconds from creation).
-  firstDeadlineSec: 150,
-  trancheSpacingSec: 60,
+  firstDeadlineSec: 60,
+  trancheSpacingSec: 30,
   tranchePcts: [0.25, 0.25, 0.25, 0.25],
 };
 
