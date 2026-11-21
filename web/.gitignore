@@ -1,0 +1,11 @@
+node_modules/
+.next/
+next-env.d.ts
+*.tsbuildinfo
+.env*
+!.env.example
+# Testnet wallets (seeds) and app state — never commit
+.data/
+
+# local tooling
+.claude/
