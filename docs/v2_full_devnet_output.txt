@@ -1,0 +1,147 @@
+connected
+Source wallet: raJYw4hJzryGN9nPBVCwviQAcpV9JXcp5x
+Running test in directory: examples/smart-escrows/orbitbond
+
+========================================================================
+0. Comptes (devnet Smart Escrow)
+========================================================================
+   Fonds                  raJYw4hJzryGN9nPBVCwviQAcpV9JXcp5x
+   Opérateur A (Sat-A)    rLHtpWaBZtyo52gkAdFi6g7TB8ueXjQpG3
+   Opérateur B (Sat-B)    rLzxtbTRfb2tuR7cJQPXXd1sVxh7icSLPD
+   Émetteur tEUR/tBILL    rMDrN2yYSJaWxfzBZQwAW5YhjpLawXdiFw
+   Assureur               rKwubNPPiL2TtXoujKQDTNh3aFKR74KZHh
+   Nettoyage              raVSQDeZH13KMw8PdLYbYo5EiKpXhNeDqv
+   OrbitBond              r3E51P2vo89zhSyFc3Wpd6KB7B49gSGeuY
+   Oracle ESA             rwxusQbPFaQ8YnQJJP2vhDhiXWhmtv82vD
+   Oracle LeoLabs         rKwvykGNqDLdCE85rizyRBbVt4orgXVEd6
+   Oracle Space-Track     rEvuedbmDbLsPUoC9zMLAhTzCuhqRsNT1h
+
+========================================================================
+1. Émetteur : tEUR (stablecoin) et tBILL (bons du Trésor), escrow de tokens autorisé
+========================================================================
+SUBMITTED AccountSet(1B0BA609CA3815E902D42B8EA221F7E46E77B94D3A9B39AD0EC2E9E05B614DA5)
+Result code: tesSUCCESS
+SUBMITTED AccountSet(134BEBA1231790CEB0B2F3315047A0872EF41F3A30464E2DEDC742353A3224CF)
+Result code: tesSUCCESS
+   AllowTrustLineLocking  https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/134BEBA1231790CEB0B2F3315047A0872EF41F3A30464E2DEDC742353A3224CF
+SUBMITTED TrustSet(03B9A37D5F9076D2E642161A09053134C4EC6BE326D1E74989F145F049A9FBF8)
+Result code: tesSUCCESS
+SUBMITTED TrustSet(E3A3EBB25997C2C794A5391AFB7BE0137F66617F9151E02AA365499698EACED5)
+Result code: tesSUCCESS
+SUBMITTED TrustSet(6905D8F576E32EC31BF037EE32D8A09FD50B5552084AD9175247A5A54A4BEE31)
+Result code: tesSUCCESS
+SUBMITTED TrustSet(473CE4FF842B70909ED7A2DD621D183009E3C992ACC71279B4FFE3C525DEBA80)
+Result code: tesSUCCESS
+SUBMITTED TrustSet(62B00F0CC479771E1E1B3E1A4D2B07A33C826D9ED566812C8A2B223EEA0C6F43)
+Result code: tesSUCCESS
+SUBMITTED TrustSet(F0E79F4EEA3EFC56DB892BFD095BFCC26F78CDA8668C55E2753156BBCACBC000)
+Result code: tesSUCCESS
+SUBMITTED TrustSet(85480BC160249FE74A05C9D986CA5985CB58B1CEF992BB13911AA77669D23D42)
+Result code: tesSUCCESS
+SUBMITTED TrustSet(C333DAE8FD6B4F7ED26377BAA28814672FDC0C2896692AE26E5EE58110C5E644)
+Result code: tesSUCCESS
+SUBMITTED TrustSet(3E84E9A1103AF007F48777B8ABE66E92AD12CFA955FC2411BEED64E1C912FDD2)
+Result code: tesSUCCESS
+SUBMITTED Payment(C4D84849B81107076EEA760FC699B907DB014B2D45A97056BB9A8DD2333C5406)
+Result code: tesSUCCESS
+SUBMITTED Payment(9DEB8F937584FDD266672E6C8E7EB68889ED36B2649D1D3B4178C9A56ABC050D)
+Result code: tesSUCCESS
+SUBMITTED Payment(7E45FE3F097B0CE0BE9C993CB2EE67519AFEAB29FF731A589F77404A9C9E4706)
+Result code: tesSUCCESS
+   Trustlines ouvertes, 1 000 000 tEUR distribués aux opérateurs et à l'assureur
+
+========================================================================
+2. Dépôt des cautions : placées en tBILL et bloquées dans le Smart Escrow (destination = opérateur)
+========================================================================
+SUBMITTED Payment(4A1A486356B41F5A6E754AED463EB22624409F626A42180F804BFD9FE2B2D98A)
+Result code: tesSUCCESS
+SUBMITTED Payment(4F877C0BDDCADAAF4B9FFC1E2B343C6F0C58B769F9E2D21AA4914E52840929C9)
+Result code: tesSUCCESS
+SUBMITTED Payment(79EF98EA75CCEC42EDEE357DA469CF9E0061689073EE05A8963DA862597C87F9)
+Result code: tesSUCCESS
+SUBMITTED Payment(5EA73018E1CC65699042E26B83283B509D5E37E0F5CD0F9A105E7D5FCBDE2B5A)
+Result code: tesSUCCESS
+connected
+SUBMITTED EscrowCreate(9D68648AB31FDD3A873F7D1B9108ED7290CC79AFB03D1EF4199102FE3FEA5F4C)
+Result code: tesSUCCESS
+   Sat-B (5 kg, 650 km, sans propulsion) : caution 75 000,00 tEUR → 75 000,00 tBILL en Smart Escrow (séq. 1626760), frais OrbitBond 750,00 tEUR  https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/4F877C0BDDCADAAF4B9FFC1E2B343C6F0C58B769F9E2D21AA4914E52840929C9
+SUBMITTED Payment(90F10498816023E572A5257949D188A4C35A86AFF0C3B586D8FC854D130ACC1B)
+Result code: tesSUCCESS
+SUBMITTED Payment(307AD0A14132A226036413167690BFF941F5A7BBB8DD97793CBC34AE7220C540)
+Result code: tesSUCCESS
+SUBMITTED Payment(7A4E624D4E161E8E855985A014B9D21636BAF3732F1EC04A7629718B01539441)
+Result code: tesSUCCESS
+SUBMITTED Payment(29C7262FDCD1D06F5FA192773E072FE422CB69919801A584F1D8C88A63C254F4)
+Result code: tesSUCCESS
+connected
+SUBMITTED EscrowCreate(ABB972B193BC4AAABBFC6546779136CE0013A29BD8A770E94ADD85896F74C9C9)
+Result code: tesSUCCESS
+   Sat-A (300 kg, 550 km, propulsion)   : caution 50 000,00 tEUR → 50 000,00 tBILL en Smart Escrow (séq. 1626762), frais OrbitBond 500,00 tEUR  https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/307AD0A14132A226036413167690BFF941F5A7BBB8DD97793CBC34AE7220C540
+
+========================================================================
+3. Cinq ans passent : le tBILL vaut 1.2167 tEUR (4 %/an)
+========================================================================
+
+========================================================================
+4. Sat-A redescend : les oracles certifient la rentrée, le Smart Escrow compte les confirmations
+========================================================================
+SUBMITTED EscrowFinish(BB57973150C83A004268E433059B8AEFC26CAEADA5E40E939D100417260EEC02)
+Result code: tecBYTECODE_REJECTED
+   0 oracle sur 3  → tecBYTECODE_REJECTED  https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/BB57973150C83A004268E433059B8AEFC26CAEADA5E40E939D100417260EEC02
+SUBMITTED CredentialCreate(DC409AF93676CC528EEA954B4B0DF7B93AE33CE8383487D68BE215F624BA8D14)
+Result code: tesSUCCESS
+   ESA certifie (Credential DEORBITED)  https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/DC409AF93676CC528EEA954B4B0DF7B93AE33CE8383487D68BE215F624BA8D14
+SUBMITTED EscrowFinish(11577B6D39ED4C023C1E16E2D4770C6758B8C89D10321760794131B05ED9DB69)
+Result code: tecBYTECODE_REJECTED
+   1 oracle sur 3  → tecBYTECODE_REJECTED  https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/11577B6D39ED4C023C1E16E2D4770C6758B8C89D10321760794131B05ED9DB69
+SUBMITTED CredentialCreate(EECDB9684376650F1B5A29AD32241E00614CC4F4AEAC3100F355AC9255A54623)
+Result code: tesSUCCESS
+   Space-Track certifie (Credential DEORBITED)  https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/EECDB9684376650F1B5A29AD32241E00614CC4F4AEAC3100F355AC9255A54623
+SUBMITTED EscrowFinish(1A84DA5B14ECB8C51BEA2447E2BCF410B5C913779162B7B7DC48C71A29BBDF77)
+Result code: tesSUCCESS
+   2 oracles sur 3 → tesSUCCESS : 50 000,00 tBILL versés DIRECTEMENT à l'opérateur A  https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/1A84DA5B14ECB8C51BEA2447E2BCF410B5C913779162B7B7DC48C71A29BBDF77
+
+========================================================================
+5. L'opérateur A récupère sa caution + 100 % des intérêts, et sa ristourne d'assurance
+========================================================================
+SUBMITTED Payment(24387DE2D7DBFDA9847AC838CEF27A16D6092B4B27BE01EB74B541363D18109C)
+Result code: tesSUCCESS
+SUBMITTED Payment(923F0BDB6CCDADBC889AD00957C013220DE7C2B83C8330E902929DA97F8727E5)
+Result code: tesSUCCESS
+   Rachat des tBILL : 60 832,65 tEUR (dont 10 832,64 d'intérêts)  https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/923F0BDB6CCDADBC889AD00957C013220DE7C2B83C8330E902929DA97F8727E5
+SUBMITTED Payment(7E8C6B756822685016C2030EA3E3771ABA375303E3AA213E57789253AD0DEB33)
+Result code: tesSUCCESS
+   Ristourne de l'assureur : 2 000,00 tEUR  https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/7E8C6B756822685016C2030EA3E3771ABA375303E3AA213E57789253AD0DEB33
+
+========================================================================
+6. Sat-B reste en orbite : déblocage refusé, puis la date limite passe
+========================================================================
+SUBMITTED EscrowFinish(94C67880B39696F98E0C7F82527F610C30D67FB1D78A3DA30BA3C9887F626C6C)
+Result code: tecBYTECODE_REJECTED
+   Tentative de déblocage de Sat-B → tecBYTECODE_REJECTED
+SUBMITTED EscrowCancel(B20D51F4FCCCB526CAB362E524117ED116452998866F08192108E458686321D6)
+Result code: tesSUCCESS
+   EscrowCancel → 75 000,00 tBILL reviennent au Fonds  https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/B20D51F4FCCCB526CAB362E524117ED116452998866F08192108E458686321D6
+
+========================================================================
+7. Le Fonds répartit la caution perdue : 70 % nettoyage, 30 % bonus de performance pour Sat-A
+========================================================================
+SUBMITTED Payment(4F3A9DAB07A7A15409AB59DD212BA272049BE6B47207BF1E61C9703C77965BE0)
+Result code: tesSUCCESS
+SUBMITTED Payment(07DC8965419A4521E5DCEFCBF665195559200E4DCE9E0D1FDA2BFC7B9F424B1A)
+Result code: tesSUCCESS
+SUBMITTED Payment(CEC87194DE260FE1BFF97823963414D7BA8CCB096222DC7E8390522E358223D0)
+Result code: tesSUCCESS
+   Nettoyage : 63 874,28 tEUR  https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/CEC87194DE260FE1BFF97823963414D7BA8CCB096222DC7E8390522E358223D0
+SUBMITTED Payment(078E1B103693E9BF8B4AC5C777D8B58F19CBD4EBECD5C2B5DD3C01DD65341CBE)
+Result code: tesSUCCESS
+   Bonus de performance → opérateur A : 27 374,69 tEUR  https://custom.xrpl.org/wasm-devnet.dev.ripplex.io/transactions/078E1B103693E9BF8B4AC5C777D8B58F19CBD4EBECD5C2B5DD3C01DD65341CBE
+
+========================================================================
+8. Bilan
+========================================================================
+   Opérateur A : caution 50 000,00 → récupère 89 707,34 tEUR net (+39 707,34)
+                 seul en bons du Trésor, il aurait eu 60 832,65 tEUR
+   Opérateur B : perd sa caution de 75 000,00 tEUR
+   Nettoyage   : 63 874,28 tEUR   |   OrbitBond : 1 250,00 tEUR de frais de dépôt
+   La règle « 2 oracles sur 3 » est vérifiée par le ledger, et l'escrow paie l'opérateur sans intermédiaire.
