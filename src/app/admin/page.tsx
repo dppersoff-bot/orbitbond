@@ -7,8 +7,9 @@ import { OPERATORS, type OperatorKey } from "@/lib/data/seed";
 import { DEMO_TIME } from "@/lib/config";
 import type { PublicBond } from "@/lib/store";
 
-const PRESETS: { op: OperatorKey; name: string; norad: string; alt: number; mass: number; prop: string; scenario: string }[] = [
-  { op: "opA", name: "AURORA-5", norad: "SIM-90415", alt: 540, mass: 450, prop: "electric", scenario: "Scénario 1 — désorbitation anticipée" },
+const PRESETS: { op: OperatorKey; name: string; norad: string; alt: number; mass: number; prop: string; scenario: string; schedule?: { firstDeadlineSec: number; trancheSpacingSec: number } }[] = [
+  // Scenario 1 gets a 5-min first deadline so the early bonus can't be missed during the pitch.
+  { op: "opA", name: "AURORA-5", norad: "SIM-90415", alt: 540, mass: 450, prop: "electric", scenario: "Scénario 1 — désorbitation anticipée", schedule: { firstDeadlineSec: 300, trancheSpacingSec: 30 } },
   { op: "opB", name: "KESTREL-11", norad: "SIM-90711", alt: 780, mass: 900, prop: "chemical", scenario: "Scénario 2 — désorbitation tardive" },
   { op: "opC", name: "MERIDIAN-6", norad: "SIM-90306", alt: 950, mass: 700, prop: "none", scenario: "Scénario 3 — abandon" },
 ];
@@ -36,7 +37,7 @@ export default function AdminPage() {
         {steps.length > 0 && <ul className="mt-3 space-y-0.5 font-mono text-xs text-muted">{steps.map((s, i) => <li key={i}>{s}</li>)}</ul>}
       </Card>
 
-      <Card title="2. Scénarios de démonstration" subtitle={`Échéances : T1 à +${DEMO_TIME.firstDeadlineSec}s puis +${DEMO_TIME.trancheSpacingSec}s par tranche.`}>
+      <Card title="2. Scénarios de démonstration" subtitle={`Échéances : T1 à +${DEMO_TIME.firstDeadlineSec}s puis +${DEMO_TIME.trancheSpacingSec}s par tranche (scénario 1 : T1 à +5 min).`}>
         <div className="grid gap-4 md:grid-cols-3">
           {PRESETS.map((p) => (
             <div key={p.name} className="rounded-lg border border-space-700 bg-space-800/50 p-4 text-sm">
@@ -44,12 +45,12 @@ export default function AdminPage() {
               <div className="mt-1 text-xs text-muted">{OPERATORS[p.op].name} · {p.name} · {p.alt} km · {p.mass} kg</div>
               <ol className="mt-3 list-decimal space-y-1 pl-4 text-xs text-muted">
                 {p.op === "opA" && <><li>Créer le bond</li><li>Sur la page du bond : 2 sources « Confirme » tout de suite</li><li>Les 4 tranches sont libérées → Régler (bonus inclus)</li></>}
-                {p.op === "opB" && <><li>Créer le bond</li><li>Attendre l&apos;échéance de T2 (≈ 3,5 min)</li><li>« Traiter les échéances » → T1, T2 confisquées</li><li>2 sources « Confirme » → T3, T4 libérées → Régler</li></>}
-                {p.op === "opC" && <><li>Créer le bond</li><li>Ne rien confirmer ; attendre la dernière échéance (≈ 5,5 min)</li><li>« Traiter les échéances » → tout confisqué → Régler</li></>}
+                {p.op === "opB" && <><li>Créer le bond</li><li>Attendre l&apos;échéance de T2 (≈ 1 min 30)</li><li>Tout de suite : 2 sources « Confirme » → T3, T4 libérées (avant 2 min)</li><li>« Traiter les échéances » → T1, T2 confisquées → Régler</li></>}
+                {p.op === "opC" && <><li>Créer le bond</li><li>Ne rien confirmer ; attendre la dernière échéance (≈ 2 min 30)</li><li>« Traiter les échéances » → tout confisqué → Régler</li></>}
               </ol>
               <div className="mt-3">
                 <Button variant="ghost" disabled={!state?.initialized} onClick={async () => {
-                  const b = await api<PublicBond>("/api/bonds", { operator: p.op, name: p.name, noradId: p.norad, altitudeKm: p.alt, massKg: p.mass, propulsion: p.prop, missionYears: 5 });
+                  const b = await api<PublicBond>("/api/bonds", { operator: p.op, name: p.name, noradId: p.norad, altitudeKm: p.alt, massKg: p.mass, propulsion: p.prop, missionYears: 5, schedule: p.schedule });
                   window.location.href = `/bonds/${b.id}`;
                 }}>Créer le bond</Button>
               </div>

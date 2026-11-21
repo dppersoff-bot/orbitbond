@@ -21,9 +21,9 @@ Wallet seeds and app state live in `.data/` (git-ignored — never commit it).
 
 | Scenario | Steps |
 | --- | --- |
-| 1 — Early deorbit | Create bond → 2 oracle sources "Confirme" → all tranches released → Settle (bonus) |
-| 2 — Late deorbit | Create bond → wait past T2 (~3.5 min) → "Traiter les échéances" → confirm → Settle |
-| 3 — Abandonment | Create bond → wait past T4 (~5.5 min) → "Traiter les échéances" → Settle |
+| 1 — Early deorbit (first deadline 5 min) | Create bond → 2 oracle sources "Confirme" → all tranches released → Settle (bonus) |
+| 2 — Late deorbit | Create bond → wait past T2 (~1 min 30) → confirm right away (T3, T4 released) → "Traiter les échéances" → Settle |
+| 3 — Abandonment | Create bond → wait past T4 (~2 min 30) → "Traiter les échéances" → Settle |
 
 Tip: start scenarios 2 and 3 at the beginning of the pitch.
 

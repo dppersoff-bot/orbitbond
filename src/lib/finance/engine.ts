@@ -114,11 +114,16 @@ export function computeSettlement(i: SettlementInput): SettlementBreakdown {
 }
 
 /** Deadlines of each tranche (unix seconds), progressively later. */
-export function trancheSchedule(createdUnix: number) {
+export function trancheSchedule(
+  createdUnix: number,
+  opts: { firstDeadlineSec?: number; trancheSpacingSec?: number } = {},
+) {
+  const first = opts.firstDeadlineSec ?? DEMO_TIME.firstDeadlineSec;
+  const spacing = opts.trancheSpacingSec ?? DEMO_TIME.trancheSpacingSec;
   return DEMO_TIME.tranchePcts.map((pct, idx) => ({
     index: idx,
     pct,
-    cancelAfterUnix: createdUnix + DEMO_TIME.firstDeadlineSec + idx * DEMO_TIME.trancheSpacingSec,
+    cancelAfterUnix: createdUnix + first + idx * spacing,
   }));
 }
 
