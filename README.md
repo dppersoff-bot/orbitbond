@@ -97,3 +97,10 @@ Claude (Anthropic) was used for ideation, documentation and to generate the Pyth
 ## License
 
 MIT
+
+## Web app (demo) — `web/`
+
+The full demo web app (Next.js + xrpl.js, XRPL Testnet: Token Escrow per tranche, 2-of-3 oracle panel,
+settlement buckets, transparency, insurer and debris-removal pages) lives in [`web/`](web/).
+Windows: double-click `web/DEMARRER.bat`. Otherwise: `cd web && npm install && npm run setup && npm run dev`.
+See [`web/README.md`](web/README.md).
